@@ -6,7 +6,7 @@ builder.Services.AddControllers();
 builder.Services.AddRouting();
 builder.Services.AddSwaggerGen();
 builder.AddApplicationContext();
-builder.Services.AddCrudServices();
+builder.Services.AddServices();
 
 Log.Logger = new LoggerConfiguration()
     .MinimumLevel.Information()

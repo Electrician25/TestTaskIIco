@@ -4,7 +4,6 @@
     {
         public UserByIdNotFoundException(string message)
         {
-            Console.WriteLine(message);
         }
     }
 }

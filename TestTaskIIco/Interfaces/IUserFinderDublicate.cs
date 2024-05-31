@@ -1,6 +1,6 @@
 ﻿using PostgreDatabase.DAL.Entities;
 
-namespace TestTaskIIcoServer.Interfaces
+namespace TestTaskIIco.Interfaces
 {
     public interface IUserFinderDublicate
     {

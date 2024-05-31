@@ -5,7 +5,8 @@ using TestTaskIIco.Interfaces;
 namespace TestTaskIIco.CrudService
 {
     public class UserCreatorService(
-        ApplicationContext applicationContext, ILogger<UserCreatorService> logger) : IUserCreatorService
+        ApplicationContext applicationContext,
+        ILogger<UserCreatorService> logger) : IUserCreatorService
     {
         async public Task<User> CreateUserAsyncService(User newUser)
         {

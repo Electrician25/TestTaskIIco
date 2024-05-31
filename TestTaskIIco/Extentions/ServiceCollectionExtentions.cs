@@ -1,13 +1,12 @@
 ﻿using TestTaskIIco.CrudService;
 using TestTaskIIco.Interfaces;
 using TestTaskIIcoServer.CrudService;
-using TestTaskIIcoServer.Interfaces;
 
 namespace TestTaskIIcoServer.Extentions
 {
     public static class ServiceCollectionExtentions
     {
-        public static IServiceCollection AddCrudServices(this IServiceCollection services)
+        public static IServiceCollection AddServices(this IServiceCollection services)
         {
             return services.AddTransient<IUserCreatorService, UserCreatorService>()
                 .AddTransient<IUserDeleterServicie, UserDeleterServicie>()

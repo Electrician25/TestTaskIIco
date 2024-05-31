@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PostgreDatabase.DAL.Entities;
 using TestTaskIIco.Interfaces;
-using TestTaskIIcoServer.Interfaces;
 
 namespace TestTaskIIco.Controllers
 {
