@@ -138,15 +138,25 @@ namespace Tests
             // Arrange.
             var users = new User[]
             {
-                new () { ClientId = 1,
-                            SystemId = new Guid(),
-                            UserName = "Alex" },
-                new () { ClientId = 2,
-                            SystemId = new Guid(),
-                            UserName = "William"},
-                new () { ClientId = 7,
-                            SystemId = new Guid(),
-                            UserName = "Dora"},
+                new ()
+                {
+                    ClientId = 1,
+                    SystemId = new Guid(),
+                    UserName = "Alex"
+                },
+                new ()
+                {
+                    ClientId = 2,
+                    SystemId = new Guid(),
+                    UserName = "William"
+                },
+
+                new ()
+                {
+                    ClientId = 7,
+                    SystemId = new Guid(),
+                    UserName = "Dora"
+                },
             };
 
             var mockLogger = new Mock<ILogger<UserFinderDublicate>>();
