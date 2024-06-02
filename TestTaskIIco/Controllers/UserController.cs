@@ -38,7 +38,7 @@ namespace TestTaskIIco.Controllers
         }
 
         [HttpPost("AddNoDublicateUsers")]
-        async public Task<User[]> AddNoDublicateEntitiesAsync(User[] users)
+        async public Task<User[]> AddNoDublicateEntitiesAsync([FromBody] User[] users)
         {
             return await userFinderDublicate.AddNoDublicateEntitiesAsyncService(users);
         }

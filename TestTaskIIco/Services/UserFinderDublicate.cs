@@ -9,28 +9,29 @@ namespace TestTaskIIcoServer.CrudService
         ApplicationContext applicationContext,
         ILogger<UserFinderDublicate> logger) : IUserFinderDublicate
     {
-        async public Task<User[]> AddNoDublicateEntitiesAsyncService(User[] users)
+        async public Task<User[]> AddNoDublicateEntitiesAsyncService(User[] newUsers)
         {
-            logger.LogInformation("POSTREQUEST---> Add users count: {users.Length}", users.Length);
+            logger.LogInformation("POSTREQUEST---> Add users count: {users.Length}", newUsers.Length);
 
-            var result = new List<User>();
-            var currentUsers = await applicationContext.Users.ToArrayAsync();
-            int i = 0;
-            int j = 0;
+            var noDublicateUsers = new List<User>();
 
-            foreach (var user in users)
+            foreach (var user in newUsers)
             {
-                if (user.ClientId != currentUsers[i].ClientId)
+                var currentUser = await applicationContext.Users.FirstOrDefaultAsync(x => x.ClientId == user.ClientId);
+                if (currentUser == null)
                 {
-                    result.Add(user);
-                    j++;
+                    noDublicateUsers.Add(user);
+                    await applicationContext.Users.AddAsync(user);
+                    applicationContext.SaveChanges();
                 }
-                i++;
             }
 
-            result.TrimExcess();
+            if (noDublicateUsers.Count == 0)
+            {
+                logger.LogInformation("All entities is dublicate");
+            }
 
-            return result.ToArray();
+            return noDublicateUsers.ToArray();
         }
     }
 }
